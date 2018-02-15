@@ -1,8 +1,11 @@
-# README
+# Custom Gaming CMS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo: [https://gamingcms.herokuapp.com/](https://gamingcms.herokuapp.com/)
 
-Things you may want to cover:
+## Installation:
 
-* Soon...
+* TODO ...
+
+### Feature:
+
+* TODO...
