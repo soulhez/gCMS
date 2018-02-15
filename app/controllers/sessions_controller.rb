@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     user     = User.find_by(email: params[:session][:email].downcase)
     password = Digest::SHA1.hexdigest(params[:session][:password])
 
+    # TODO: Change code
     if user && (password.eql?user.password)
       log_in user
       flash[:success] = 'Zalogowano pomyślnie!'
