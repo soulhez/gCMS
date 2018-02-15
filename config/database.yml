@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  host: localhost
+  username: postgres
+  password: password
+  database: development_rails
+
+test:
+  <<: *default
+  host: localhost
+  username: postgres
+  password: password
+  database: test_rails
+
+production:
+  <<: *default
+  host: ec2-54-195-241-106.eu-west-1.compute.amazonaws.com
+  port: 5432
+  database: d66tggb6tk10r2
+  username: yhkymsaucfzcvj
+  password: 15e5552580dee3ac5504b1725bdf857cbc7ad0f9a58e1ef0d456a2b30e237aea

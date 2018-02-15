@@ -1,0 +1,22 @@
+= provide(:title, "Wszyscy użytkownicy")
+div class="col-sm-12"
+  h1 class="text-center mb-3 mt-3 text-uppercase"
+    | Użytkownicy
+  div class="row"
+    div class="col-md-4"
+    div class="col-md-4"
+      ul class="list-group"
+        - @user.each do |user|
+          li class="list-group-item active"
+            | ID: #{user.id}
+          li class="list-group-item"
+            | Nazwa: #{user.name}
+          li class="list-group-item"
+            | Email: #{user.email}
+          li class="list-group-item"
+            | Hasło: #{user.password}
+          li class="list-group-item"
+            | Utworzono: #{user.created_at}
+          li class="list-group-item"
+            | Zmodyfikowano: #{user.updated_at}
+    div class="col-md-4"

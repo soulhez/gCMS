@@ -1,0 +1,11 @@
+    div class="row"
+      div class="col-sm-2"
+        = comment.commenter
+      div class="col-sm-8"
+        = comment.body
+      div class="col-sm-2 btn-group mb-1"
+          a class="btn btn-success pt-0 pb-0 text-white" href="#"
+            | Edytuj
+          = link_to "Usuń", [comment.article, comment], class: "btn btn-danger pt-0 pb-0 text-white",
+                                                        method: :delete,
+                                                        data: { confirm: "Na pewno chcesz usunąć komentarz?" }

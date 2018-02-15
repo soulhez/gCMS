@@ -1,0 +1,21 @@
+= provide(:title, "Zaloguj się")
+div class="col-sm-12"
+  h1 class="text-center mb-3 mt-3 text-uppercase"
+    | Zaloguj się
+  div class="row"
+    div class="col-md-4"
+    div class="col-md-4"
+      = form_for(:session, url: login_path, html: {:class => "form-group mb-2"}) do |form|
+
+        = form.label          :email, "E-mail:", class: "font-weight-bold text-uppercase m-0"
+        = form.email_field    :email, class: 'form-control'
+
+        = form.label          :password, "Hasło:", class: "font-weight-bold text-uppercase m-0"
+        = form.password_field :password, class: 'form-control'
+
+        = form.submit "Zaloguj", class: "btn btn-primary btn-block mt-2 text-uppercase"
+
+        p
+          | Nowy użytkownik?
+          = link_to "Utwórz konto", signup_path
+    div class="col-md-4"

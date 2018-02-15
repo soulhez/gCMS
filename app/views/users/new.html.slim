@@ -1,0 +1,25 @@
+= provide(:title, "Zarejestruj się")
+div class="col-sm-12"
+  h1 class="text-center mb-3 mt-3 text-uppercase"
+    | Zarejestruj się
+  div class="row"
+    div class="col-md-4"
+    div class="col-md-4"
+      = form_for(@user, url: signup_path, html: {:class => "form-group mb-2"}) do |form|
+
+        = render "shared/error_messages"
+
+        = form.label          :name, "Nazwa użytkownika:", class: "font-weight-bold text-uppercase m-0"
+        = form.text_field     :name, class: "form-control"
+
+        = form.label          :email, "E-mail:", class: "font-weight-bold text-uppercase m-0"
+        = form.text_field     :email, class: "form-control"
+
+        = form.label          :password, "Hasło:", class: "font-weight-bold text-uppercase m-0"
+        = form.password_field :password, class: "form-control"
+
+        = form.label          :password_confirmation, "Potwierdź hasło:", class: "font-weight-bold text-uppercase m-0"
+        = form.password_field :password_confirmation, class: "form-control"
+
+        = form.submit "Utwórz konto", class: "btn btn-primary btn-block mt-2 text-uppercase"
+    div class="col-md-4"

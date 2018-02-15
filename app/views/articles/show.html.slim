@@ -1,0 +1,30 @@
+= provide(:title, "Pokaż artykuł")
+div class="card mt-2"
+  h5 class="card-header bg-dark text-white"
+    = @article.title
+  div class="card-body"
+    p class="card-text"
+      = @article.text
+  div class="card-footer btn-group"
+      = link_to "Edytuj", edit_article_path(@article), class: "btn btn-success"
+      = link_to "Usuń",   article_path(@article),      class: "btn btn-danger",
+                                                       method: :delete,
+                                                       data: { confirm: "Jesteś pewny, że chcesz usunąć?" }
+
+= render "comments/form"
+
+div class="card mt-3 mb-3"
+  h5 class="card-header bg-dark text-white"
+    | Komentarze:
+  div class="card-body"
+    div class="row"
+      div class="col-sm-2"
+        strong
+          | Autor
+      div class="col-sm-8"
+        strong
+          | Komentarz
+      div class="col-sm-2 text-center"
+        strong
+          | Akcja
+    = render @article.comments

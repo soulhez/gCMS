@@ -1,0 +1,30 @@
+= provide(:title, "Dane użytkownika")
+h1
+  | Twój profil
+table class="table table-bordered"
+  tbody
+    tr
+      th scope="row"
+        | Nazwa użytkownika:
+      td
+        = @user.name
+    tr
+      th scope="row"
+        | E-mail:
+      td
+        = @user.email
+    tr
+      th scope="row"
+        | Hasło:
+      td
+        = @user.password
+    tr
+      th scope="row"
+        | Utworzono:
+      td
+        = @user.created_at
+    tr
+      th scope="row"
+        | Zmodyfikowano:
+      td
+        = @user.updated_at

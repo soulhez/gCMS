@@ -1,0 +1,8 @@
+= provide(:title, "Kontakt")
+h1
+  | Kontakt
+p class="text-danger font-weight-bold"
+  = @secret_text
+p
+  | Kliknij tutaj:
+  = link_to "Zobacz", "/contact?id=5"

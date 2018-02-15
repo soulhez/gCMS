@@ -1,0 +1,19 @@
+= provide(:title, "Artykuły")
+div class="col-sm-12"
+  h1 class="mb-3 mt-3"
+    | Lista artykułów
+  = link_to fa_icon("plus", text: "Nowy artykuł"), new_article_path, class: "btn btn-outline-primary mb-2"
+
+  - @articles.each do |article|
+    div class="card mb-2"
+      h5 class="card-header bg-dark text-white"
+        | #{article.title}
+      div class="card-body"
+        p class="card-text"
+          | #{article.text}
+      div class="card-footer btn-group"
+          = link_to "Pokaż",  article_path(article),      class: "btn btn-primary"
+          = link_to "Edytuj", edit_article_path(article), class: "btn btn-success"
+          = link_to "Usuń",   article_path(article),      class: "btn btn-danger",
+                                                          method: :delete,
+                                                          data: { confirm: "Jesteś pewny, że chcesz usunąć?" }

@@ -1,0 +1,23 @@
+  = form_with(model: @article, local: true) do |form|
+    - if @article.errors.any?
+      - @article.errors.each do |attribute, message|
+        div class="alert alert-danger mb-1"
+          = message
+
+    div class="card mt-3"
+      h5 class="card-header bg-dark text-white"
+        | Utwórz artykuł:
+      div class="card-body"
+        div class="input-group"
+          div class="input-group-prepend"
+            span class="input-group-text text-dark"
+              | Tytuł
+          = form.text_field :title, class: "form-control"
+
+        div class="input-group mt-1"
+          div class="input-group-prepend"
+            span class="input-group-text text-dark"
+              | Treść artykułu
+          = form.text_area :text, class: "form-control"
+
+        = form.submit "Wyślij", class: "btn btn-primary btn-block mt-1"

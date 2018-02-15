@@ -1,0 +1,23 @@
+= provide(:title, "Strona główna")
+div class="col-sm-12"
+  h1
+    | Witamy!
+
+  div class="grid-wrapper"
+    div class="grid-box a"
+      | Newsy
+    div class="grid-box b"
+      | Artykuły
+    div class="grid-box c"
+      | Recenzje
+    div class="grid-box d"
+      | Zapowiedzi
+
+  br
+
+  - if logged_in?
+    p
+      | Ten tekst widzą tylko zalogowani użytkownicy!
+  - else
+    p
+      | Zaloguj się a coś zobaczysz :)

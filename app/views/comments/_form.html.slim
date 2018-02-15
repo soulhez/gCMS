@@ -1,0 +1,18 @@
+= form_with(model: [ @article, @article.comments.build ]) do |form|
+  div class="card mt-3"
+    h5 class="card-header bg-dark text-white"
+      | Dodaj komentarz:
+    div class="card-body"
+      div class="input-group"
+        div class="input-group-prepend"
+          span class="input-group-text text-dark"
+            | Twoje imię
+        = form.text_field :commenter, class: "form-control"
+
+      div class="input-group mt-1"
+        div class="input-group-prepend"
+          span class="input-group-text text-dark"
+            | Treść komentarza
+        = form.text_area :body, class: "form-control"
+
+      = form.submit "Wyślij", class: "btn btn-primary btn-block mt-1"
