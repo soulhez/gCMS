@@ -36,7 +36,7 @@ RSpec.describe Article, type: :model do
     end
   end
 
-  # it { should have_many(:comments) }
+  it { should have_many(:comments) }
 
   # it "should have comments" do
   #  is_expected.to have_many(:comments).dependent(:destroy)
