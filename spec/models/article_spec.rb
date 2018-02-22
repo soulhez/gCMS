@@ -12,27 +12,33 @@ RSpec.describe Article, type: :model do
     expect(@article).to be_valid
   end
 
-  it "is invalid with blank title" do
-    @article.title = " "
-    expect(@article).not_to be_valid
+  describe "article title" do
+    it "is invalid with blank title" do
+      @article.title = " "
+      expect(@article).not_to be_valid
+    end
+
+    it "is invalid if title is less than 5 characters" do
+      @article.title = "a" * 4
+      expect(@article).not_to be_valid
+    end
+
+    it "is invalid if title is greater than 64 characters" do
+      @article.title = "b" * 65
+      expect(@article).not_to be_valid
+    end
   end
 
-  it "is invalid with blank text" do
-    @article.text = " "
-    expect(@article).not_to be_valid
+  describe "article text" do
+    it "is invalid with blank text" do
+      @article.text = " "
+      expect(@article).not_to be_valid
+    end
   end
 
-  it "is invalid if title is less than 5 characters" do
-    @article.title = "a" * 4
-    expect(@article).not_to be_valid
-  end
-
-  it "is invalid if title is greater than 64 characters" do
-    @article.title = "b" * 65
-    expect(@article).not_to be_valid
-  end
+  # it { should have_many(:comments) }
 
   # it "should have comments" do
-  #  should have_many(:comments).dependent(:destroy)
+  #  is_expected.to have_many(:comments).dependent(:destroy)
   # end
 end
