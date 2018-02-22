@@ -1,44 +1,32 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
+
   before do
-    @article = Article.new(
-      title: "Tytuł artykułu",
-      text: "To jest przykładowa treść artykułu."
-    )
+    FactoryBot.build(:article)
   end
 
-  it "is valid with title and text" do
-    expect(@article).to be_valid
-  end
-
-  describe "article title" do
-    it "is invalid with blank title" do
-      @article.title = " "
-      expect(@article).not_to be_valid
+  describe "validation" do
+    describe "title" do
+      it { should validate_presence_of(:title) }
+      it { should validate_length_of(:title).is_at_least(5) }
+      it { should validate_length_of(:title).is_at_most(64) }
     end
 
-    it "is invalid if title is less than 5 characters" do
-      @article.title = "a" * 4
-      expect(@article).not_to be_valid
-    end
-
-    it "is invalid if title is greater than 64 characters" do
-      @article.title = "b" * 65
-      expect(@article).not_to be_valid
+    describe "text" do
+      it { should validate_presence_of(:text) }
     end
   end
 
-  describe "article text" do
-    it "is invalid with blank text" do
-      @article.text = " "
-      expect(@article).not_to be_valid
+  describe "association" do
+    describe "comments" do
+      it { should have_many(:comments) }
+      it { should have_many(:comments).dependent(:destroy) }
     end
   end
 
-  it { should have_many(:comments) }
-
-  # it "should have comments" do
-  #  is_expected.to have_many(:comments).dependent(:destroy)
-  # end
+  describe "db columns" do
+    it { should have_db_column(:title).of_type(:string).with_options(length: {minimum: 5, maximum: 64 }, presence: true) }
+    it { should have_db_column(:text).of_type(:string).with_options(presence: true) }
+  end
 end
