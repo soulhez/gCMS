@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-
   before do
-    FactoryBot.build(:article)
+    FactoryBot.create(:article)
   end
 
   describe "validation" do
@@ -25,7 +24,7 @@ RSpec.describe Article, type: :model do
     end
   end
 
-  describe "db columns" do
+  describe "database" do
     it { should have_db_column(:title).of_type(:string).with_options(length: { minimum: 5, maximum: 64 }, presence: true) }
     it { should have_db_column(:text).of_type(:text).with_options(presence: true) }
   end
