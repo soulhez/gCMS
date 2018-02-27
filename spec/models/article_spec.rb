@@ -26,7 +26,7 @@ RSpec.describe Article, type: :model do
   end
 
   describe "db columns" do
-    it { should have_db_column(:title).of_type(:string).with_options(length: {minimum: 5, maximum: 64 }, presence: true) }
-    it { should have_db_column(:text).of_type(:string).with_options(presence: true) }
+    it { should have_db_column(:title).of_type(:string).with_options(length: { minimum: 5, maximum: 64 }, presence: true) }
+    it { should have_db_column(:text).of_type(:text).with_options(presence: true) }
   end
 end
