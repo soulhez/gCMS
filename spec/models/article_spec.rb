@@ -4,6 +4,7 @@ RSpec.describe Article, type: :model do
   before do
     FactoryBot.create(:article)
   end
+  # add code to get factories work
 
   describe "validation" do
     describe "title" do
